@@ -14,7 +14,8 @@ uses
   System.Windows.Shapes;
 
 type
-  Window1 = public partial class(System.Windows.Window)
+
+  MainView = public partial class(System.Windows.Window)
   private
   public
     constructor;
@@ -22,7 +23,7 @@ type
   
 implementation
 
-constructor Window1;
+constructor MainView;
 begin
   InitializeComponent();
 end;

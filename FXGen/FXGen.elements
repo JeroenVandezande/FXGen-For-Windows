@@ -52,6 +52,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="ReachFramework" />
@@ -78,10 +82,13 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
     <Compile Include="App.xaml.pas" />
-    <Page Include="views\Window1.xaml" />
-    <Compile Include="views\Window1.xaml.pas">
+    <Page Include="views\MainView.xaml" />
+    <Compile Include="viewmodels\MainViewModel.pas">
       <SubType>Code</SubType>
-      <DependentUpon>views\Window1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\MainView.xaml.pas">
+      <SubType>Code</SubType>
+      <DependentUpon>views\MainView.xaml</DependentUpon>
     </Compile>
     <None Include="Properties\App.ico" />
     <Compile Include="Properties\AssemblyInfo.pas" />
@@ -95,8 +102,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="viewmodels" />
     <Folder Include="views" />
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Content</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Elements\RemObjects.Elements.Echoes.targets" />
 </Project>
