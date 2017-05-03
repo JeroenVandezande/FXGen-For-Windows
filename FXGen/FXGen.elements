@@ -98,7 +98,9 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
     <Compile Include="App.xaml.pas" />
-    <Page Include="views\MainView.xaml" />
+    <Compile Include="HeaderImporter.pas">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Messages\GlobalMessages.pas">
       <SubType>Code</SubType>
     </Compile>
@@ -108,12 +110,9 @@
     <Compile Include="Utilities\ViewModelLocator.pas">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="viewmodels\MainViewModel.pas">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="views\MainView.xaml.pas">
-      <SubType>Code</SubType>
-      <DependentUpon>views\MainView.xaml</DependentUpon>
+    <Compile Include="viewmodels\MainWindowViewModel.pas" />
+    <Compile Include="views\MainWindowView.xaml.pas">
+      <DependentUpon>views\MainWindowView.xaml</DependentUpon>
     </Compile>
     <None Include="Properties\App.ico" />
     <Compile Include="Properties\AssemblyInfo.pas" />
@@ -145,6 +144,9 @@
       <Private>True</Private>
       <HintPath>..\MVVMTools\bin\Debug\MVVMTools.dll</HintPath>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="views\MainWindowView.xaml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Elements\RemObjects.Elements.Echoes.targets" />
 </Project>
