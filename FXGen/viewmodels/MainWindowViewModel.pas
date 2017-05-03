@@ -24,7 +24,7 @@ type
     property OnlyImportExplicitHeaders: Boolean; notify;
     //commands
     property InvokeHeaderFilesHelperCommand := new RelayCommand(method; begin
-      
+      App.Navigator.ShowOpenFileDialog('*.h');
     end); readonly;
 
     constructor;

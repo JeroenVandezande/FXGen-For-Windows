@@ -10,17 +10,17 @@
     DataContext="{Binding Source={StaticResource VMLocator}, Path=MainWindowViewModel}" 
     ShowInTaskbar="True" TitleCaps="False">
   
-  <Grid>
+  <Grid Margin="0,10,0,0">
     <Grid.RowDefinitions>
-      <RowDefinition/>
-      <RowDefinition/>
-      <RowDefinition/>
-      <RowDefinition/>
-      <RowDefinition/>
-      <RowDefinition/>
-      <RowDefinition/>
-      <RowDefinition/>
-      <RowDefinition/>
+      <RowDefinition MinHeight="40"/>
+      <RowDefinition MinHeight="40"/>
+      <RowDefinition MinHeight="40"/>
+      <RowDefinition MinHeight="40"/>
+      <RowDefinition MinHeight="40"/>
+      <RowDefinition MinHeight="40"/>
+      <RowDefinition MinHeight="40"/>
+      <RowDefinition MinHeight="40"/>
+      <RowDefinition MinHeight="40"/>
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="Auto"/>

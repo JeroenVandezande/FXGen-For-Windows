@@ -22,6 +22,7 @@ type
     constructor;
     begin
       InitializeComponent();
+      FXGen.App.Navigator := new Navigator(self);
     end;
   end;
    

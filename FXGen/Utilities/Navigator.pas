@@ -5,7 +5,6 @@ uses
   System.Windows,
   MVVM,
   MahApps.Metro.Controls,
-  MahApps.Metro.Controls.Dialogs,
   FXGen.Messages;
 
 type
@@ -16,27 +15,36 @@ type
   protected
   public
 
-    method ShowOpenFileDialog(aInitialFolder: String; aFilePattern: String): String;
+    method ShowOpenFileDialog(aFilePattern: String): String;
     begin
-      using dlg := new Microsoft.Win32.OpenFileDialog() do
+      using dlg := new Ookii.Dialogs.Wpf.VistaOpenFileDialog do
       begin
         var curWin := fViewStack.Peek();
         curWin.Opacity := 0.3;
-        dlg.InitialDirectory := aInitialFolder;
         dlg.DefaultExt := aFilePattern;
         if dlg.ShowDialog(curWin) then result := dlg.FileName;
         curWin.Opacity := 1;
       end;
     end;
 
-    method ShowSaveFileDialog(aInitialFolder: String; aFileName: String): String;
+    method ShowOpenFolderDialog(): String;
     begin
-      using dlg := new Microsoft.Win32.SaveFileDialog() do
+      using dlg := new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog do
       begin
         var curWin := fViewStack.Peek();
         curWin.Opacity := 0.3;
-        dlg.FileName := aFileName;
-        dlg.InitialDirectory := aInitialFolder;                
+        if dlg.ShowDialog(curWin) then result := dlg.SelectedPath;
+        curWin.Opacity := 1;
+      end;
+    end;
+
+    method ShowSaveFileDialog(aFileName: String): String;
+    begin
+      using dlg := new Ookii.Dialogs.Wpf.VistaSaveFileDialog do
+      begin
+        var curWin := fViewStack.Peek();
+        curWin.Opacity := 0.3;
+        dlg.FileName := aFileName;             
         if dlg.ShowDialog(curWin) then result := dlg.FileName;
         curWin.Opacity := 1;
       end;
