@@ -2,7 +2,7 @@
 
 type
 
-  MainViewModel = public class
+  MainWindowViewModel = public class
   private
   protected
   public

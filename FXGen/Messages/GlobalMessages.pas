@@ -1,4 +1,4 @@
-﻿namespace LampSchedulerManager.Messages;
+﻿namespace FXGen.Messages;
 
 type
 
