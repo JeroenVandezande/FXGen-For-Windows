@@ -21,10 +21,17 @@ type
       Messenger.Default.Send(new ShowHeaderFileHelperMessage);
     end); readonly;
 
+    property LoadExistingJSONFileCommand := new RelayCommand(method; begin
+      var fn := DataAccess.RequestOpenFileName();
+      if assigned(fn) then
+      begin
+        DataAccess.LoadFromFile(fn);
+      end;
+    end); readonly;
+
     constructor(aDataAccess: IDataAccess);
     begin
       DataAccess := aDataAccess;
-      var hi := new HeaderImporter;
     end;
   end;
 

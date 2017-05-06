@@ -28,15 +28,16 @@
       <ColumnDefinition Width="Auto"/>
     </Grid.ColumnDefinitions>
     <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right">Platform</Label>
-    <ComboBox Grid.Column="1" ItemsSource="{Binding DataAccess.Platforms}" SelectedItem="{Binding Platform}" VerticalAlignment="Center" Margin="10,0"/>
+    <ComboBox Grid.Column="1" ItemsSource="{Binding DataAccess.Platforms}" SelectedItem="{Binding DataAccess.ImporterJsonData.Platform}" VerticalAlignment="Center" Margin="10,0"/>
     <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Grid.Row="1">Architecture</Label>
-    <ComboBox Grid.Column="1" ItemsSource="{Binding DataAccess.Achitectures}" SelectedItem="{Binding DataAccess.Achitecture}" VerticalAlignment="Center" Margin="10,0" Grid.Row="1"/>
+    <ComboBox Grid.Column="1" ItemsSource="{Binding DataAccess.TargetStrings}" SelectedItem="{Binding DataAccess.ImporterJsonData.TargetString}" VerticalAlignment="Center" Margin="10,0" Grid.Row="1"/>
     <Label VerticalContentAlignment="Center" Grid.Row="2" ToolTip="This will be the name of the generated .fx file" HorizontalContentAlignment="Right">Library Name</Label>
-    <TextBox Grid.Row="2" Grid.Column="1" ToolTip="This will be the name of the generated .fx file" VerticalAlignment="Center" Text="{Binding DataAccess.LibraryName}" Margin="10,0"></TextBox>
+    <TextBox Grid.Row="2" Grid.Column="1" ToolTip="This will be the name of the generated .fx file" VerticalAlignment="Center" Text="{Binding DataAccess.ImporterJsonData.Imports[0].LibraryName}" Margin="10,0"></TextBox>
     <Label VerticalContentAlignment="Center" Grid.Row="3" ToolTip="The actual header file names that you want to import. These filenames may (optionally) include relative path names; FXGen will try to locate these headers relative to the folders in the 'Header Search Paths'. Both fields can take a comma or semicolon-separated list." HorizontalContentAlignment="Right">Headers</Label>
-    <TextBox Grid.Row="3" Grid.Column="1" ToolTip="The actual header file names that you want to import. These filenames may (optionally) include relative path names; FXGen will try to locate these headers relative to the folders in the 'Header Search Paths'. Both fields can take a comma or semicolon-separated list." VerticalAlignment="Center" Text="{Binding DataAccess.HeaderFiles}" Margin="10,0"></TextBox>
+    <TextBox Grid.Row="3" Grid.Column="1" ToolTip="The actual header file names that you want to import. These filenames may (optionally) include relative path names; FXGen will try to locate these headers relative to the folders in the 'Header Search Paths'. Both fields can take a comma or semicolon-separated list." VerticalAlignment="Center" Text="{Binding DataAccess.ImporterJsonData.HeaderImports[0].HeaderFiles}" Margin="10,0"></TextBox>
     <Button Grid.Row="3" Grid.Column="2" Height="20" Width="30" Command="{Binding InvokeHeaderFilesHelperCommand}" Margin="0,0,10,0">...</Button>
-    <CheckBox Grid.Row="4" Grid.Column="1" IsChecked="{Binding DataAccess.OnlyImportExplicitHeaders}" Margin="10,0,0,0">Only import/expose headers listed explicitly above</CheckBox>
+    <CheckBox Grid.Row="4" Grid.Column="1" IsChecked="{Binding DataAccess.ImporterJsonData.HeaderImports[0].OnlyImportExplicitHeaders}" Margin="10,0,0,0">Only import/expose headers listed explicitly above</CheckBox>
+    <Button Grid.Row="5" Command="{Binding LoadExistingJSONFileCommand}"></Button>
   </Grid>
 
 </controls:MetroWindow>
