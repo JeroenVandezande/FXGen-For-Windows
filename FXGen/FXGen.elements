@@ -98,10 +98,16 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
     <Compile Include="App.xaml.pas" />
+    <Compile Include="DataAccess.pas">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="HeaderImporter.pas">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Messages\GlobalMessages.pas">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messages\MainViewMessages.pas">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Utilities\Navigator.pas">
@@ -110,7 +116,11 @@
     <Compile Include="Utilities\ViewModelLocator.pas">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="viewmodels\HeaderFileHelperViewModel.pas" />
     <Compile Include="viewmodels\MainWindowViewModel.pas" />
+    <Compile Include="views\HeaderFileHelperView.xaml.pas">
+      <DependentUpon>views\HeaderFileHelperView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="views\MainWindowView.xaml.pas">
       <DependentUpon>views\MainWindowView.xaml</DependentUpon>
     </Compile>
@@ -146,6 +156,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="views\HeaderFileHelperView.xaml" />
     <Page Include="views\MainWindowView.xaml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Elements\RemObjects.Elements.Echoes.targets" />

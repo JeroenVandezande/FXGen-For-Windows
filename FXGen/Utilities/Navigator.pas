@@ -69,6 +69,20 @@ type
           System.Windows.Threading.DispatcherObject(curWin).Invoke(cls);      
       end); 
 
+      Messenger.Default.Register<ShowHeaderFileHelperMessage>(self, method(aMessage: ShowHeaderFileHelperMessage)
+      begin
+        var curWin := fViewStack.Peek();
+        curWin.Opacity := 0.3;
+        using dlg := new FXGen.Views.HeaderFileHelperView do
+        begin
+          dlg.Owner := curWin;
+          fViewStack.Push(dlg);
+          dlg.ShowDialog();
+          fViewStack.Pop();
+        end;
+        curWin.Opacity := 1;
+      end);
+
     end;
   end;
 
