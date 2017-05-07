@@ -3,6 +3,7 @@
 uses
    System.Collections.ObjectModel,
    System.IO,
+   System.Linq,
    Newtonsoft.Json;
 
 type
@@ -31,7 +32,7 @@ type
     [JsonProperty("Name")]
     property LibraryName: String; notify;
     [JsonProperty("Files")]
-    property HeaderFiles: String; notify;
+    property HeaderFiles: ObservableCollection<String>; notify;
     [JsonProperty("Explicit")]
     property OnlyImportExplicitHeaders: Boolean; notify;
   end;
@@ -54,6 +55,7 @@ type
     begin
       var json := File.ReadAllText(aFileName);
       ImporterJsonData := JsonConvert.DeserializeObject<HeaderImporterJSONData>(json);
+      if not assigned(ImporterJsonData.Imports[0].HeaderFiles) then ImporterJsonData.Imports.RemoveAt(0);
     end;
       
     constructor;
